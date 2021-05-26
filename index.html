@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: Beige;
+  padding: 20px;
+  font-family: comic san;
+}
+
+
+.main {
+  max-width: 1000px;
+  margin: auto;
+}
+
+h1 {
+  font-size: 50px;
+  word-break: break-all;
+  font-family:Verdana;
+  color: Brown;
+}
+
+.row {
+  margin: 10px -16px;
+}
+
+/* Add padding BETWEEN each column */
+.row,
+.row > .column {
+  padding: 8px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+  float: left;
+  width: 33.33%;
+  display: none; /* Hide all elements by default */
+}
+
+/* Clear floats after rows */ 
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Content */
+.content {
+  background-color: white;
+  padding: 10px;
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+  display: block;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+</style>
+</head>
+<body>
+
+<!-- MAIN (Center website) -->
+<div class="main">
+
+<h1>THOUGHTS BY SAM</h1>
+<hr>
+
+<h2><marquee><i>GALLERY</marquee></i></h2>
+
+<div id="myBtnContainer">
+  <button class="btn active" onclick="filterSelection('cars')"> Overview</button>
+  <button class="btn" onclick="filterSelection('nature')"> Poetry</button>
+  <button class="btn" onclick="filterSelection('life')"> Status</button>
+  <button class="btn" onclick="filterSelection('people')"> Contact me</button>
+</div>
+
+<!-- Portfolio Gallery Grid -->
+<div class="row">
+  <div class="column nature">
+    <div class="content">
+      <img src="ENG.jpg" alt="English" style="width:100%">
+      <h4>English Poetry</h4>
+      <p>Broken<br>Fallen<br>Pessimistic and etc..</p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="SIN.jpg" alt="Sinhala" style="width:100%">
+      <h4>Sinhala Poetry</h4>
+      <p>Yathawabodha<br>Aseemitha<br>Nishprabha and etc..</p>
+    </div>
+  </div>
+  <div class="column nature">
+    <div class="content">
+    <img src="def.jpg" alt="writing" style="width:100%">
+      <h4>As a writer</h4>
+      <p>Content and blog writer in Colombo Beacon <br> Content and blog writer in Escapt<br>Freelancer</p>
+    </div>
+  </div>
+  
+  <div class="column life">
+    <div class="content">
+      <img src="asd.jpg" alt="edu" style="width:100%">
+      <h4>Education</h4>
+      <p>UCSC Undergrad from 2021 April <br>ALs at Tangalle Girls School<br>OLs at Co/Visakha Vidyalaya</p>
+    </div>
+  </div>
+  <div class="column life">
+    <div class="content">
+    <img src="abc.jpg" alt="extra" style="width:100%">
+      <h4><br>Clubs</h4>
+      <p>Member of Gavel Club UOC<br>Member of IEEE S.B.UCSC<br>Member of AIESEC CC<br>Member of ISACA UCSC<br></p>
+    </div>
+  </div>
+  <div class="column life">
+    <div class="content">
+    <img src="samzzzzz.jpg" alt="extra" style="width:100%">
+      <h4><br>Other Interests</h4>
+      <p>Programming<br>Photography<br>Web development<br>Forensics<br></p>
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="mail.jpg" alt="mail" style="width:100%">
+      <h4>Mail Me</h4>
+      <p><a href="meegasdeniyasamadhi@gmail.com">meegasdeniyasamadhi@gmail.com</a></p>
+    </div>
+  </div>
+
+  <div class="column people">
+    <div class="content">
+      <img src="twitter.jpg" alt="tweet" style="width:100%">
+      <h4>Tweet Me</h4>
+      <p><a href="https://twitter.com/Samz_alpha">@Samz_alpha</a></p>
+    </div>
+  </div>
+  <div class="column people">
+    <div class="content">
+    <img src="LINKED.jpg" alt="LINKED" style="width:100%">
+      <h4>LinkedIn</h4>
+      <p><a href="https://www.linkedin.com/in/samadhi-anuththara-4b4171212">Samadhi Anuththara</a></p>
+    </div>
+  </div>
+  
+<!-- END GRID -->
+</div>
+
+<!-- END MAIN -->
+</div>
+
+<script>
+filterSelection("cars")
+function filterSelection(c) {
+  var x, i;
+  x = document.getElementsByClassName("column");
+  if (c == "cars") c = "";
+  for (i = 0; i < x.length; i++) {
+    w3RemoveClass(x[i], "show");
+    if (x[i].className.indexOf(c) > -1) w3AddClass(x[i], "show");
+  }
+}
+
+function w3AddClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    if (arr1.indexOf(arr2[i]) == -1) {element.className += " " + arr2[i];}
+  }
+}
+
+function w3RemoveClass(element, name) {
+  var i, arr1, arr2;
+  arr1 = element.className.split(" ");
+  arr2 = name.split(" ");
+  for (i = 0; i < arr2.length; i++) {
+    while (arr1.indexOf(arr2[i]) > -1) {
+      arr1.splice(arr1.indexOf(arr2[i]), 1);     
+    }
+  }
+  element.className = arr1.join(" ");
+}
+
+
+// Add active class to the current button (highlight it)
+var btnContainer = document.getElementById("myBtnContainer");
+var btns = btnContainer.getElementsByClassName("btn");
+for (var i = 0; i < btns.length; i++) {
+  btns[i].addEventListener("click", function(){
+    var current = document.getElementsByClassName("active");
+    current[0].className = current[0].className.replace(" active", "");
+    this.className += " active";
+  });
+}
+</script>
+
+</body>
+<script language="JavaScript1.2">
+
+/*
+Advanced window scroller script-
+By JavaScript Kit (www.javascriptkit.com)
+Over 200+ free JavaScripts here!
+*/
+
+var currentpos=0,alt=1,curpos1=0,curpos2=-1
+function initialize(){
+startit()
+}
+function scrollwindow(){
+if (document.all)
+temp=document.body.scrollTop
+else
+temp=window.pageYOffset
+if (alt==0)
+alt=1
+else
+alt=0
+if (alt==0)
+curpos1=temp
+else
+curpos2=temp
+if (curpos1!=curpos2){
+if (document.all)
+currentpos=document.body.scrollTop+1
+else
+currentpos=window.pageYOffset+1
+window.scroll(0,currentpos)
+}
+else{
+currentpos=0
+window.scroll(0,currentpos)
+}
+}
+function startit(){
+setInterval("scrollwindow()",10)
+}
+window.onload=initialize
+</script>
+
+</html>
